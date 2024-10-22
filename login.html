@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar-brand img { height: 60px; margin-right: 2px; }
+        .navbar-brand { font-weight: bold; white-space: nowrap; font-size: 1.25rem; }
+        .btn { font-weight: bold; }
+        @media (max-width: 576px) { .navbar-brand { font-size: 1rem; } }
+        @media (min-width: 577px) and (max-width: 768px) { .navbar-brand { font-size: 1.75rem; } }
+        @media (min-width: 769px) and (max-width: 992px) { .navbar-brand { font-size: 2rem; } }
+        @media (min-width: 993px) { .navbar-brand { font-size: 2.25rem; } }
+        .navbar { position: sticky; top: 0; z-index: 1000; }
+        .login-container {
+            max-width: 400px;
+            padding: 50px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+        }
+
+form#loginForm {
+    width: max-content;
+}
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: #000;
+            cursor: pointer;
+        }
+        .close-button:hover { color: #f00; }
+        .footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        body { margin-bottom: 60px; }
+        .btn-black {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 91px;
+        }
+        .btn-black:hover { background-color: #c2c2c2; }
+        h2 { font-size: 2rem; font-weight: bold; }
+        .form-control { border-radius: 20.3rem; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <img src="pictures/horizontallogo.png" alt="Logo">
+            SmartLock System
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto"></ul>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h2 class="text-center">Login</h2>
+
+        <form class="formcss" id="loginForm" action="php/login.php" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="btn btn-black btn-block">Login</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Senti-Shield, Inc. | All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+    document.querySelector('#loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        const formData = new FormData(this);
+
+        fetch('php/login.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                // Redirect to the specified page
+                window.location.href = data.redirect;
+            } else {
+                // Display an error message
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+    </script>
+</body>
+</html>

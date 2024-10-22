@@ -1,0 +1,256 @@
+img.logo {
+    width: 250px;
+    position: relative;
+    padding-top: 75px;
+}
+.h2{
+
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+.size{
+
+    font-size: 30px;
+}
+
+
+
+form.input{
+ color: transparent;
+}
+/* Profile Dropdown */
+.profile-dropdown {
+    position: absolute;
+    top: 60px; /* Adjust according to your navbar height */
+    right: 0; /* Adjust according to the width of the dropdown */
+    background-color: var(--light);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: none;
+    width: 200px;
+    z-index: 1000;
+}
+
+.profile-dropdown.active {
+    display: block;
+}
+
+.profile-dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.profile-dropdown a:hover {
+    background-color: var(--grey);
+}
+
+/* Calendar */
+/* Light mode calendar */
+#calendar.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Dark mode calendar */
+#calendar.dark-mode {
+    background-color: #171a1d;
+    color: #ffffff;
+}
+
+
+.calendar {
+    color: rgb(173, 162, 162);
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.cd{
+    font-size: 30px;
+}
+
+.calendar #calendar {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--light);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.calendar:hover #calendar {
+    display: block;
+}
+
+#total-records {
+    color: var(--dark);
+  }
+  
+    /* Modal styling */
+    :root {
+        --poppins: 'Poppins', sans-serif;
+        --lato: 'Lato', sans-serif;
+    
+        --light: #F9F9F9;
+        --blue: #3C91E6;
+        --light-blue: #CFE8FF;
+        --grey: #eee;
+        --dark-grey: #AAAAAA;
+        --dark: #342E37;
+        --red: #DB504A;
+        --yellow: #FFCE26;
+        --light-yellow: #FFF2C6;
+        --orange: #FD7238;
+        --light-orange: #FFE0D3;
+    }
+    
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+         /* Black w/ opacity */
+    }
+    
+    /* Modal Content/Box */
+    .modal-content {
+            background-color: var(--light);
+            margin: 10% auto; /* 10% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 30%; /* Adjust width as needed */
+            max-width: 800px; /* Maximum width */
+            color: var(--dark);
+            position: relative; /* Add position relative to position close button inside */
+        }
+    
+    
+    p.txt {
+        color: var(--dark);
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    /* Close Button */
+    .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--dark);
+            cursor: pointer;
+        }
+    
+    
+    
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    
+    /* Form styling */
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    label {
+        margin-bottom: 10px;
+        color: var(--dark); /* Apply text color */
+        /* Remove background and padding */
+        background: none;
+        padding: 0;
+    }
+    
+    
+    input[type=text], input[type=email], input[type=tel] {
+        padding: 5px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+    }
+    
+    /* Modal buttons */
+    .modal-buttons {
+            margin-top: 20px;
+            text-align: right;
+        }
+    
+        .submit-btn, .delete-btn {
+            padding: 10px 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+    
+    .submit-btn {
+        background-color: #4CAF50; /* Green */
+        color: white;
+        border: none;
+        border-radius: 10px;
+        
+    }
+    
+    .delete-btn {
+        background-color: #f44336; /* Red */
+        color: white;
+        border: none;
+        border-radius: 10px;
+    }
+    
+    button#editButton, button#editButton2 {
+        background: transparent;
+        padding: 5px;
+        border: none;
+        color: var(--light-text);
+        transition: color 0.3s;
+    }
+    .submit-btn:hover {
+            background-color: #45a049; /* Darker green */
+        }
+    
+        .delete-btn {
+            background-color: #f44336; /* Red */
+        }
+    
+        .delete-btn:hover {
+            background-color: #e53935; /* Darker red */
+        }
+    
+    /*----------------------------------------------------------------*/
+    .bd{
+        width: 50%;
+    }
+    .button.btn1.edit-button{
+        background-color: var(--dark);
+    }
+    @media (max-width: 768px) {
+            .modal-content {
+                width: 90%; /* Reduce width on smaller screens */
+                max-width: none;
+            }
+        }
+/*----------------------------------------------------------------*/
+i.bx.bxs-cloud-download {
+    width: 30px;
+    font-size: 25px;
+}
